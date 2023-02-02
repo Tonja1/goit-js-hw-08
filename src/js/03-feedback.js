@@ -15,13 +15,13 @@ function onInput(evt) {
 }
 
 function fillFormOnLoad() {
+  
+  if (localStorage.getItem(STORAGE_KEY));
   const savedData = JSON.parse(localStorage.getItem(STORAGE_KEY));
-  if (savedData) {
-     Object.entries(savedData).forEach(([email, message, value]) => {
-       formRef.elements[email, message].value = value;
-    });
+  for (const key in savedData) {
+    formRef.elements[key].value = savedData[key];
   }
-}
+  };
 
 function onFormSubmit(evt) {
   evt.preventDefault();
